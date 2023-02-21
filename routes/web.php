@@ -20,6 +20,10 @@ Route::get('/{name}', function($name = null){
 });
 */
 
+Route::group(['middleware'=>"web"], function(){
+
+});
+
 Route::get('/', function () {
     return view ('index');
 });
@@ -38,4 +42,4 @@ Route::get('/user_home', function () {
 });
 */
 
-Route::post('/user_login', [UserRegistration::class, 'userLogin']);
+Route::get('/user_login', [UserRegistration::class, 'userLogin']);
