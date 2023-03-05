@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customers;
 use Illuminate\Support\Facades\Crypt;
+use DB;
 
 class UserRegistration extends Controller
 {
@@ -13,13 +14,9 @@ class UserRegistration extends Controller
     }
 
     public function register(Request $request){
-        $user = new customers;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->password = Crypt::encrypt($request->password);
-        $user->save();
-        return redirect('user_login')->with('status', 'User has been registered');
+        $userModel = new Customers;
+        $data=$userModel->addUser($request->all());
+        $response['message']="User registration successful";
     }
 
     public function userLogin(Request $request){

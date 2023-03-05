@@ -15,7 +15,7 @@ class CustomAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        echo "Hello from middleware";
+        //echo "Hello from middleware";
         return $next($request);
     }
 }

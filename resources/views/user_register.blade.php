@@ -61,6 +61,19 @@
             </div>
         </div>
     </nav>
+
+    @if (session('insert'))
+        <div class="alert alert-success" role="alert">
+            {{session('insert')}}
+        </div>
+    @endif
+
+    @if (session('insert_error'))
+        <div class="alert alert-danger" role="alert">
+            {{session('insert_error')}}
+        </div>
+    @endif
+
     <form action="{{url('/user_registration')}}" name="user_register" id="user_register" method="POST">
         @csrf
         <div class="container">

@@ -36,10 +36,4 @@ Route::get('/user_login_page', function(){
     return view ('user_login');
 });
 
-/*
-Route::get('/user_home', function () {
-    return view ('user_home');
-});
-*/
-
 Route::get('/user_login', [UserRegistration::class, 'userLogin']);
