@@ -17,6 +17,11 @@ class UserRegistration extends Controller
         $userModel = new Customers;
         $data=$userModel->addUser($request->all());
         $response['message']="User registration successful";
+        $response['data']=$request->all();
+        //return response()->json($response);
+        //return Redirect::back()->withErrors(['msg' => 'The Message']);
+        return redirect()->back()->with('UserRegistrationSuccess', 'Registration Successful');
+
     }
 
     public function userLogin(Request $request){
