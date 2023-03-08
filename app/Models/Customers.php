@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class customers extends Model
 {
-    function addUser($data){
-        DB::table('customer')->insert($data);
+    function addUser($data)
+    {
+        DB::table('customers')->insert($data);
     }
 
-    function getUser($email){
-        $data = DB::table('customer')->where('email', $email);
+    function getUser($email)
+    {
+        $data = DB::table('customers')->where('email', $email);
         return $data;
     }
 }

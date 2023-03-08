@@ -15,25 +15,24 @@ use App\Http\Controllers\UserRegistration;
 */
 /*
 Route::get('/{name}', function($name = null){
-    $data = compact('name');
-    return view('demo')->with($data);
+$data = compact('name');
+return view('demo')->with($data);
 });
 */
 
-Route::group(['middleware'=>"web"], function(){
-
+Route::group(['middleware' => "web"], function () {
 });
 
 Route::get('/', function () {
-    return view ('index');
+    return view('index');
 });
 
-Route::get('/user_register_index', [UserRegistration::class,'index']);
+Route::get('/user_register_index', [UserRegistration::class, 'index']);
 
 Route::post('/user_registration', [UserRegistration::class, 'register']);
 
-Route::get('/user_login_page', function(){
-    return view ('user_login');
+Route::get('/user_login_page', function () {
+    return view('user_login');
 });
 
 Route::get('/user_login', [UserRegistration::class, 'userLogin']);
