@@ -113,7 +113,14 @@
                             <li>{!! \Session::get('UserRegistrationSuccess') !!}</li>
                         </ul>
                     </div>
+                    @elseif (\Session::has('UserRegistrationFails'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{!! \Session::get('UserRegistrationFails') !!}</li>
+                                </ul>
+                            </div>
                 @endif
+
             </div>
         </div>
     </form>
