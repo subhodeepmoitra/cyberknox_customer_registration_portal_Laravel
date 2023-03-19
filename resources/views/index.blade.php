@@ -31,11 +31,9 @@
                         <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/user_login_page')}}">Login</a>
+                        <a class="nav-link" href="{{url('/home')}}">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/user_register_index')}}">Register</a>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,10 +52,10 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
                     </li>
                 </ul>
-                <form class="d-flex">
+                {{-- <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                </form> --}}
             </div>
         </div>
     </nav>

@@ -57,7 +57,7 @@
             </div>
         </div>
     </nav>
-    <form action="{{url('/user_login')}}" id="user_login" name="user_login" method="get">
+    <form action="{{url('/user_login')}}" id="user_login" name="user_login" method="post">
         @csrf
         <div class="container">
             <h1 class="text-center">User Login</h1>

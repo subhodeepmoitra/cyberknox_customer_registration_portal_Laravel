@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserRegistration;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +29,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/user_register_index', [UserRegistration::class, 'index']);
 
-Route::post('/user_registration', [UserRegistration::class, 'register']);
+Auth::routes();
 
-Route::get('/user_login_page', function () {
-    return view('user_login');
-});
-
-Route::get('/user_login', [UserRegistration::class, 'userLogin']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
