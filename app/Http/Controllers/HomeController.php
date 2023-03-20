@@ -26,4 +26,8 @@ class HomeController extends Controller
         return view('home');
         //return view('dashboard');
     }
+
+    public function RegistrationViewIndex(){
+        return view ('user_product_registration');
+    }
 }

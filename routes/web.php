@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserRegistration;
 use App\Http\Controllers\AuthController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +32,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+
+
+Route::get('/product_registration', [App\Http\Controllers\HomeController::class, 'RegistrationViewIndex']);

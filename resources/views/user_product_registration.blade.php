@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Product Help') }}</div>
+                <div class="card-header">{{ __('Product Registration') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,6 @@
                         </div>
                     @endif
 
-                    {{-- {{ __('You are logged in!') }} --}}
 
                     <div class="row">
                         <div class="col-sm-6">
@@ -22,19 +21,12 @@
                             <div class="card-body">
                               <h5 class="card-title">Register a product</h5>
                               <p class="card-text">Register a product to claim warranty.</p>
-                              <a href="{{url('/product_registration')}}" class="btn btn-primary">Register</a>
+                              <a href="#" class="btn btn-primary">Register</a>
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-6">
-                          <div class="card border-danger">
-                            <div class="card-body">
-                              <h5 class="card-title">Raise a product issue</h5>
-                              <p class="card-text">Raise a issue with a registered product.</p>
-                              <a href="#" class="btn btn-primary">Raise issue</a>
-                            </div>
-                          </div>
-                        </div>
+
+
                       </div>
                 </div>
             </div>
