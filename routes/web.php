@@ -35,3 +35,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 
 Route::get('/product_registration', [App\Http\Controllers\HomeController::class, 'RegistrationViewIndex']);
+
+//test view
+Route::get('/test', function () {
+    //return view ('test');
+});
