@@ -83,7 +83,7 @@
             @yield('content')
         </main>
     </div>
-    <form action="" method="post">
+    <form action="{{url('/productRegistration')}}" method="post">
         @csrf
         <section class="h-100 h-custom gradient-custom-2">
             <div class="container py-5 h-100">
@@ -100,13 +100,13 @@
                             <div class="row">
                               <div class="col-md-6 mb-4 pb-2">
                                 <div class="form-outline">
-                                  <input type="text" id="fname" class="form-control form-control-lg" />
+                                  <input type="text" name="fname" id="fname" class="form-control form-control-lg" />
                                   <label class="form-label" for="form3Examplev2">First name</label>
                                 </div>
                               </div>
                               <div class="col-md-6 mb-4 pb-2">
                                 <div class="form-outline">
-                                  <input type="text" id="lname" class="form-control form-control-lg" />
+                                  <input type="text" name="lname" id="lname" class="form-control form-control-lg" />
                                   <label class="form-label" for="form3Examplev3">Last name</label>
                                 </div>
                               </div>
@@ -115,7 +115,7 @@
 
                             <div class="mb-4 pb-2">
                               <div class="form-outline">
-                                <input type="text" id="productId" class="form-control form-control-lg" />
+                                <input type="text" name="productId" id="productId" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Examplev4">Product ID</label>
                               </div>
                             </div>
@@ -123,7 +123,7 @@
                             <div class="row">
                               <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
                                 <div class="form-outline">
-                                    <input class="form-control form-control-lg" type="file" id="invoice">
+                                    <input class="form-control form-control-lg" type="file" name="invoice" id="invoice">
                                     <label for="formFile" class="form-label">Upload invoice</label>
                                 </div>
                               </div>
@@ -139,14 +139,14 @@
 
                             <div class="mb-4 pb-2">
                               <div class="form-outline form-white">
-                                <input type="text" id="address" class="form-control form-control-lg" />
+                                <input type="text" name="address" id="address" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Examplea2">Address</label>
                               </div>
                             </div>
 
                             <div class="mb-4 pb-2">
                               <div class="form-outline form-white">
-                                <input type="text" id="additionalInfo" class="form-control form-control-lg" />
+                                <input type="text" name="additionalInfo" id="additionalInfo" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Examplea3">Additional Information</label>
                               </div>
                             </div>
@@ -155,7 +155,7 @@
                               <div class="col-md-5 mb-4 pb-2">
 
                                 <div class="form-outline form-white">
-                                  <input type="text" id="zipCode" class="form-control form-control-lg" />
+                                  <input type="text" name="zipCode" id="zipCode" class="form-control form-control-lg" />
                                   <label class="form-label" for="form3Examplea4">Zip Code</label>
                                 </div>
 
@@ -163,7 +163,7 @@
                               <div class="col-md-7 mb-4 pb-2">
 
                                 <div class="form-outline form-white">
-                                  <input type="text" id="place" class="form-control form-control-lg" />
+                                  <input type="text" name="place" id="place" class="form-control form-control-lg" />
                                   <label class="form-label" for="form3Examplea5">Place</label>
                                 </div>
 
@@ -172,7 +172,7 @@
 
                             <div class="mb-4 pb-2">
                               <div class="form-outline form-white">
-                                <input type="text" id="country" class="form-control form-control-lg" />
+                                <input type="text" name="country" id="country" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Examplea6">Country</label>
                               </div>
                             </div>
@@ -181,7 +181,7 @@
                               <div class="col-md-5 mb-4 pb-2">
 
                                 <div class="form-outline form-white">
-                                  <input type="text" id="code" class="form-control form-control-lg" />
+                                  <input type="text" name="code" id="code" class="form-control form-control-lg" />
                                   <label class="form-label" for="form3Examplea7">Code +</label>
                                 </div>
 
@@ -189,7 +189,7 @@
                               <div class="col-md-7 mb-4 pb-2">
 
                                 <div class="form-outline form-white">
-                                  <input type="text" id="phone" class="form-control form-control-lg" />
+                                  <input type="text" name="phone" id="phone" class="form-control form-control-lg" />
                                   <label class="form-label" for="form3Examplea8">Phone Number</label>
                                 </div>
 
@@ -198,7 +198,7 @@
 
                             <div class="mb-4">
                               <div class="form-outline form-white">
-                                <input type="text" id="email" class="form-control form-control-lg" />
+                                <input type="text" name="email" id="email" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Examplea9">Your Email</label>
                               </div>
                             </div>
@@ -211,7 +211,7 @@
                               </label>
                             </div>
 
-                            <button type="button" class="btn btn-light btn-lg"
+                            <button type="submit" class="btn btn-light btn-lg"
                               data-mdb-ripple-color="dark">Register</button>
 
                           </div>

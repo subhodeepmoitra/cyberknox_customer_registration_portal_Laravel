@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\UserProductRegistrationData;
 
 class HomeController extends Controller
 {
@@ -29,5 +30,10 @@ class HomeController extends Controller
 
     public function RegistrationViewIndex(){
         return view ('user_product_registration');
+    }
+
+    public function UserProductRegistration(Request $request){
+        $data = UserProductRegistrationData::create($request->all());
+        return redirect('/productRegistration')->with('success', "Account successfully registered.");
     }
 }
