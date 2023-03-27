@@ -36,7 +36,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/product_registration', [App\Http\Controllers\HomeController::class, 'RegistrationViewIndex']);
 
-Route::post('/productRegistration', [App\Http\Controllers\HomeController::class, 'UserProductRegistration']);
+Route::match(['get','post'], '/productRegistration', [App\Http\Controllers\HomeController::class, 'UserProductRegistration']);
 
 //test view
 Route::get('/test', function () {

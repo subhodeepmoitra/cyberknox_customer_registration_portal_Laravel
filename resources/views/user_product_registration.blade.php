@@ -204,7 +204,7 @@
                             </div>
 
                             <div class="form-check d-flex justify-content-start mb-4 pb-3">
-                              <input class="form-check-input me-3" type="checkbox" value="" id="form2Example3c" />
+                              <input class="form-check-input me-3" type="checkbox" value="" id="form2Example3c" required/>
                               <label class="form-check-label text-white" for="form2Example3">
                                 I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your
                                 site.

@@ -34,6 +34,6 @@ class HomeController extends Controller
 
     public function UserProductRegistration(Request $request){
         $data = UserProductRegistrationData::create($request->all());
-        return redirect('/productRegistration')->with('success', "Account successfully registered.");
+        return redirect('/home')->with('success', "Product registration details sent successfully.");
     }
 }
