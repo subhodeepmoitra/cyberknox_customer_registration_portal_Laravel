@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\UserProductRegistrationData;
 
@@ -24,8 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-        //return view('dashboard');
+        $users = DB::table('user_product_registration_data')->select('invoice','fname','lname','email','phone','registrationStatus')
+                            ->where('email', Auth::user()->email)->get();
+        return view('home', compact('users'));
     }
 
     public function RegistrationViewIndex(){

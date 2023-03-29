@@ -83,7 +83,7 @@
             @yield('content')
         </main>
     </div>
-    <form action="{{url('/productRegistration')}}" method="post">
+    <form action="{{url('/productRegistration')}}" method="post" enctype="multipart/form-data">
         @csrf
         <section class="h-100 h-custom gradient-custom-2">
             <div class="container py-5 h-100">
@@ -198,7 +198,7 @@
 
                             <div class="mb-4">
                               <div class="form-outline form-white">
-                                <input type="text" name="email" id="email" class="form-control form-control-lg" />
+                                <input type="text" name="email" id="email" class="form-control form-control-lg" value="{{Auth::user()->email}}" readonly/>
                                 <label class="form-label" for="form3Examplea9">Your Email</label>
                               </div>
                             </div>

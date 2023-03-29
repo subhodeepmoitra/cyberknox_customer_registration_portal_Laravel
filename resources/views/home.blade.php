@@ -17,7 +17,7 @@
                         {{-- {{ __('You are logged in!') }} --}}
 
                         @if (session('success'))
-                        <div class="alert alert-success">{{session('success')}}</div>
+                            <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
 
 
@@ -41,6 +41,39 @@
                                 </div>
                             </div>
                         </div>
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Invoice</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                            </tr>
+
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td><img src="/images/{{ $user->invoice }}" width="100px"></td>
+                                    <td>{{ $user->fname }}</td>
+                                    <td>{{ $user->lname }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>
+                                        @if ($user->registrationStatus == '1')
+                                            Waiting for approval
+                                        @elseif ($user->registrationStatus == '0')
+                                            Approved
+                                        @else
+                                            Problem in condition
+                            @endif
+                            </td>
+                            </tr>
+                            @endforeach
+
+                        </table>
+
+
                     </div>
                 </div>
             </div>
