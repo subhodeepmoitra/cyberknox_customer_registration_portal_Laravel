@@ -36,7 +36,13 @@ class HomeController extends Controller
     }
 
     public function UserProductRegistration(Request $request){
-        $data = UserProductRegistrationData::create($request->all());
+        $requestData = $request->all();
+        $invoice = time().$request->file('invoice')->getClientOriginalName();
+        $path = $request->file('invoice')->storeAs('invoice',$invoice,'public');
+        $upload_path = 'invoice/';
+        $requestData["invoice"] = $upload_path.$invoice;
+        
+        $data = UserProductRegistrationData::create($requestData);
         return redirect('/home')->with('success', "Product registration details sent successfully.");
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('fname')->default();
             $table->string('lname')->default();
             $table->string('productId')->default();
-            $table->string('invoice')->default();
+            $table->string('invoice', 300)->default();
             $table->string('address')->default();
             $table->string('additionalInfo')->default();
             $table->string('zipCode')->default();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('country')->default();
             $table->string('code')->default();
             $table->string('phone')->default();
-            $table->string('email')->default()->unique();
+            $table->string('email')->default();
             $table->string('registrationStatus')->default(1);
             $table->timestamps();
         });

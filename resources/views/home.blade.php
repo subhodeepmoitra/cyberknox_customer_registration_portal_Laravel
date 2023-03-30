@@ -54,7 +54,7 @@
 
                             @foreach ($users as $user)
                                 <tr>
-                                    <td><img src="/images/{{ $user->invoice }}" width="100px"></td>
+                                    <td><img src="{{url('storage/'.$user->invoice)}}" width="100px"></td>
                                     <td>{{ $user->fname }}</td>
                                     <td>{{ $user->lname }}</td>
                                     <td>{{ $user->email }}</td>

@@ -13,7 +13,7 @@ class UserProductRegistrationData extends Model
         'fname',
         'lname',
         'productId',
-        //'invoice',
+        'invoice',
         'address',
         'additionalInfo',
         'zipCode',
