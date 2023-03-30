@@ -31,6 +31,12 @@ class HomeController extends Controller
         return view('home', compact('users'));
     }
 
+    public function adminHome(){
+        //function to check IsAdmin validation
+        $users = DB::table('user_product_registration_data')->select('invoice','fname','lname','email','phone','registrationStatus')->get();
+        return view ('adminHome', compact('users'));
+    }
+
     public function RegistrationViewIndex(){
         return view ('user_product_registration');
     }
@@ -41,7 +47,7 @@ class HomeController extends Controller
         $path = $request->file('invoice')->storeAs('invoice',$invoice,'public');
         $upload_path = 'invoice/';
         $requestData["invoice"] = $upload_path.$invoice;
-        
+
         $data = UserProductRegistrationData::create($requestData);
         return redirect('/home')->with('success', "Product registration details sent successfully.");
     }

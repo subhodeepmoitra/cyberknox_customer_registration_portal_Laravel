@@ -20,7 +20,7 @@
                             <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
 
-
+                        <div class="header">Admin Section</div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="card border-success">

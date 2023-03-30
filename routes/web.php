@@ -33,6 +33,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
+Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->middleware('is_admin'); //route for IsAdmin check
 
 Route::get('/product_registration', [App\Http\Controllers\HomeController::class, 'RegistrationViewIndex']);
 
@@ -40,5 +41,5 @@ Route::match(['get','post'], '/productRegistration', [App\Http\Controllers\HomeC
 
 //test view
 Route::get('/test', function () {
-    //return view ('test');
+    return view ('admin.home');
 });
