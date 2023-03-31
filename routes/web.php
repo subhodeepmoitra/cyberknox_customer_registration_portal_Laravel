@@ -41,5 +41,5 @@ Route::match(['get','post'], '/productRegistration', [App\Http\Controllers\HomeC
 
 //test view
 Route::get('/test', function () {
-    return view ('admin.home');
+    return view ('auth/loginindex');
 });
