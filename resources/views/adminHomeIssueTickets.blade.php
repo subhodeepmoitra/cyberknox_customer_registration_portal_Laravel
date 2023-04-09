@@ -28,13 +28,13 @@
                                 <ul class="navbar-nav">
 
                                   <li class="nav-item">
-                                    <a class="nav-link disabled" href="#">
-                                        <button type="button" class="btn btn-outline-primary disabled"> New Registration Tickets</button>
+                                    <a class="nav-link active" href="{{url('/admin/home')}}">
+                                        <button type="button" class="btn btn-primary"> New Registration Tickets</button>
                                     </a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link active" href="{{url('/admin/home/issue_tickets')}}" tabindex="-1" aria-disabled="true">
-                                        <button type="button" class="btn btn-primary"> New Issue Tickets</button>
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+                                        <button type="button" class="btn btn-outline-primary disabled"> New Issue Tickets</button>
                                     </a>
                                   </li>
                                 </ul>
@@ -51,43 +51,50 @@
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
-                                <th>Status</th>
-                                <th></th>
+                                <th>Issue Description</th>
+                                <th>Expected Date of notice</th>
+                                <th>Date and time</th>
+                                <th>View</th>
                             </tr>
 
-                            @foreach ($users as $user)
+                            @foreach ($issues as $issue)
                                 <tr>
                                     <div id="content">
                                         <td>
-                                            <a href="{{ url('storage/' . $user->invoice) }}">
-                                                <img src="{{ url('storage/' . $user->invoice) }}" width="100px" id="img1"
+                                            <a href="{{ url('storage/' . $issue->invoice) }}">
+                                                <img src="{{ url('storage/' . $issue->invoice) }}" width="100px" id="img1"
                                                 alt="image">
                                             </a>
                                         </td>
                                     </div>
 
-                                    <td>{{ $user->fname }}</td>
-                                    <td>{{ $user->lname }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->phone }}</td>
+                                    <td>{{ $issue->fname }}</td>
+                                    <td>{{ $issue->lname }}</td>
+                                    <td>{{ $issue->email }}</td>
+                                    <td>{{ $issue->phone }}</td>
                                     <td>
-                                        @if ($user->registrationStatus == '1')
+                                        @if ($issue->Ticket_Status == '1')
                                             Waiting for approval
-                                        @elseif ($user->registrationStatus == '0')
+                                        @elseif ($issue->Ticket_Status == '0')
                                             Approved
                                         @else
                                             Problem in condition
                                         @endif
                                     </td>
+                                    <td></td>
+                                    <td>{{ $issue->created_at }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary">View</a>
+                                            <a href="" class="btn btn-primary">View</a>
                                     </td>
                                 </tr>
                             @endforeach
+                            <div class="d-flex justify-content-center">
+                                {{ $issues->links() }}
+                            </div>
+
                         </table>
-                        <div class="d-flex justify-content-center">
-                            {{ $users->links() }}
-                        </div>
+
+
 
                     </div>
                 </div>

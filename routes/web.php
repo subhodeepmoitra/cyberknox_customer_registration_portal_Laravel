@@ -37,7 +37,11 @@ Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHom
 
 Route::get('/product_registration', [App\Http\Controllers\HomeController::class, 'RegistrationViewIndex']);
 
+Route::get('/issue_ticket', [App\Http\Controllers\HomeController::class, 'IssueTicketViewIndex']);
+
 Route::match(['get','post'], '/productRegistration', [App\Http\Controllers\HomeController::class, 'UserProductRegistration']);
+
+Route::get('/admin/home/issue_tickets', [App\Http\Controllers\HomeController::class, 'View_Admin_Issue_Ticket'])->middleware('is_admin');;
 
 //test view
 Route::get('/test', function () {
