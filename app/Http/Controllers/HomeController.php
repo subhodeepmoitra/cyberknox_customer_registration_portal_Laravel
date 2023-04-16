@@ -29,24 +29,24 @@ class HomeController extends Controller
     public function index()
     {
         //client home page
-        $users = DB::table('user_product_registration_data')->select('invoice','fname','lname','email','phone','registrationStatus','created_at')
-                            ->where('email', Auth::user()->email)->paginate(2);
+        $users = DB::table('user_product_registration_data')->select('id', 'invoice','fname','lname','email','phone','registrationStatus','created_at')
+                            ->where('email', Auth::user()->email)->latest()->paginate(2);
         $issues = DB::table('user__product__issue__tickets')->select('invoice','fname','lname','email','phone','Ticket_Status','created_at')
-                            ->where('email', Auth::user()->email)->get();
+                            ->where('email', Auth::user()->email)->latest()->paginate(2);
         $Registrationtype = DB::table('customer_registration_types')->select('email','type')->get();
         return view('home', compact('users', 'Registrationtype', 'issues'));
     }
 
     public function adminHome(){
         //admin home
-        $users = DB::table('user_product_registration_data')->select('invoice','fname','lname','email','phone','registrationStatus','created_at')->paginate(5);
+        $users = DB::table('user_product_registration_data')->select('invoice','fname','lname','email','phone','registrationStatus','created_at')->latest()->paginate(5);
         $Registrationtype = DB::table('customer_registration_types')->select('email','type')->get();
         return view ('adminHome', compact('users'));
     }
 
     public function View_Admin_Issue_Ticket(){
         //admin section view issue
-        $issues = DB::table('user__product__issue__tickets')->select('invoice','fname','lname','email','phone','Ticket_Status','created_at')->paginate(5);
+        $issues = DB::table('user__product__issue__tickets')->select('invoice','fname','lname','email','phone','Ticket_Status','created_at')->latest()->paginate(5);
         return view('adminHomeIssueTickets', compact('issues'));
     }
 

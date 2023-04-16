@@ -83,6 +83,8 @@
             @yield('content')
         </main>
     </div>
+
+    
     <form action="{{url('/productRegistration')}}" method="post" enctype="multipart/form-data">
         @csrf
         <section class="h-100 h-custom gradient-custom-2">

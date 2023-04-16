@@ -35,13 +35,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->middleware('is_admin'); //route for IsAdmin check
 
-Route::get('/product_registration', [App\Http\Controllers\HomeController::class, 'RegistrationViewIndex']);
+Route::get('/product_registration', [App\Http\Controllers\UserProductRegistrationController::class, 'RegistrationViewIndex']); //for error change to HomeController
 
-Route::get('/issue_ticket', [App\Http\Controllers\HomeController::class, 'IssueTicketViewIndex']);
+Route::get('/issue_ticket', [App\Http\Controllers\UserProductRegistrationController::class, 'IssueTicketViewIndex']); //for error change to HomeController
 
-Route::match(['get','post'], '/productRegistration', [App\Http\Controllers\HomeController::class, 'UserProductRegistration']);
+Route::match(['get','post'], '/productRegistration', [App\Http\Controllers\UserProductRegistrationController::class, 'UserProductRegistration']); //for error change to HomeController
 
-Route::get('/admin/home/issue_tickets', [App\Http\Controllers\HomeController::class, 'View_Admin_Issue_Ticket'])->middleware('is_admin');;
+Route::get('/admin/home/issue_tickets', [App\Http\Controllers\HomeController::class, 'View_Admin_Issue_Ticket'])->middleware('is_admin');
+
+Route::get('/view_registration_details/{id}', [App\Http\Controllers\show_Registration_Details_Controller::class, 'Registrastion_details_for_client']);
 
 //test view
 Route::get('/test', function () {

@@ -46,28 +46,36 @@
                         <table class="table table-bordered">
                             <div class="card-header">{{ __('Product Registration Details') }}</div>
                             <tr>
+                                <th>ID</th>
                                 <th>Invoice</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Type</th>
-                                <th>Time</th>
-                                <th>Status</th>
+                                {{--  <th>First Name</th>
+                                <th>Last Name</th> --}}
+                                <th style="text-align: center; vertical-align: middle;">Email</th>
+                                <th style="text-align: center; vertical-align: middle;">Phone</th>
+                                {{--   <th>Type</th> --}}
+                                <th style="text-align: center; vertical-align: middle;">Time</th>
+                                <th style="text-align: center; vertical-align: middle;">Status</th>
+                                <th style="text-align: center; vertical-align: middle;">View</th>
                             </tr>
 
                             @foreach ($users as $user)
+
                                 <tr>
+                                    <td style="text-align: center; vertical-align: middle;"> {{ $user->id }} </td>
                                     <div id="content">
-                                        <td><img src="{{ url('storage/' . $user->invoice) }}" width="100px" id="img1"
-                                                alt="image"></td>
+                                        <td style="text-align: center; vertical-align: middle;">
+                                            <a href="{{ url('storage/' . $user->invoice) }}" class="btn btn-light">
+                                                <img src="{{ url('storage/' . $user->invoice) }}" width="100px"
+                                                    id="img1" alt="image">
+                                            </a>
+                                        </td>
                                     </div>
 
-                                    <td>{{ $user->fname }}</td>
-                                    <td>{{ $user->lname }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->phone }}</td>
-                                    <td>
+                                    {{-- <td>{{ $user->fname }}</td>
+                                    <td>{{ $user->lname }}</td> --}}
+                                    <td style="text-align: center; vertical-align: middle;">{{ $user->email }}</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{ $user->phone }}</td>
+                                    {{-- <td>
                                         @foreach ($Registrationtype as $type)
                                             @if ($type->type == '1')
                                                 Product Registration
@@ -77,9 +85,9 @@
                                                 Cannot Fetch Details
                                             @endif
                                         @endforeach
-                                    </td>
-                                    <td>{{ $user->created_at }}</td>
-                                    <td>
+                                    </td> --}}
+                                    <td style="text-align: center; vertical-align: middle;">{{ $user->created_at }}</td>
+                                    <td style="text-align: center; vertical-align: middle;">
                                         @if ($user->registrationStatus == '1')
                                             Waiting for approval
                                         @elseif ($user->registrationStatus == '0')
@@ -88,38 +96,47 @@
                                             Problem in condition
                                         @endif
                                     </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <a href="{{ url('/view_registration_details',$user->id) }}" class="btn btn-primary">View</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>
                         <div class="d-flex justify-content-center">
                             {{ $users->links() }}
                         </div>
+
+
+
+
                         <!-- Table for product issue details -->
                         <table class="table table-bordered">
                             <div class="card-header">{{ __('Product Issue Details') }}</div>
                             <tr>
-                                <th>Invoice</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Type</th>
-                                <th>Time</th>
-                                <th>Status</th>
+                                <th style="text-align: center; vertical-align: middle;">Invoice</th>
+                                {{-- <th>First Name</th>
+                                <th>Last Name</th> --}}
+                                <th style="text-align: center; vertical-align: middle;">Email</th>
+                                <th style="text-align: center; vertical-align: middle;">Phone</th>
+                                {{-- <th>Type</th> --}}
+                                <th style="text-align: center; vertical-align: middle;">Time</th>
+                                <th style="text-align: center; vertical-align: middle;">Status</th>
+                                <th style="text-align: center; vertical-align: middle;">View</th>
                             </tr>
 
                             @foreach ($issues as $issue)
                                 <tr>
                                     <div id="content">
-                                        <td><img src="{{ url('storage/' . $user->invoice) }}" width="100px" id="img1"
+                                        <td style="text-align: center; vertical-align: middle;"><img
+                                                src="{{ url('storage/' . $user->invoice) }}" width="100px" id="img1"
                                                 alt="image"></td>
                                     </div>
 
-                                    <td>{{ $issue->fname }}</td>
-                                    <td>{{ $issue->lname }}</td>
-                                    <td>{{ $issue->email }}</td>
-                                    <td>{{ $issue->phone }}</td>
-                                    <td>
+                                    {{--  <td>{{ $issue->fname }}</td>
+                                    <td>{{ $issue->lname }}</td> --}}
+                                    <td style="text-align: center; vertical-align: middle;">{{ $issue->email }}</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{ $issue->phone }}</td>
+                                    {{-- <td>
                                         @foreach ($Registrationtype as $type)
                                             @if ($type->type == '1')
                                                 Product Registration
@@ -129,9 +146,9 @@
                                                 Cannot Fetch Details
                                             @endif
                                         @endforeach
-                                    </td>
-                                    <td>{{ $issue->created_at }}</td>
-                                    <td>
+                                    </td> --}}
+                                    <td style="text-align: center; vertical-align: middle;">{{ $issue->created_at }}</td>
+                                    <td style="text-align: center; vertical-align: middle;">
                                         @if ($issue->Ticket_Status == '1')
                                             Issue Under Review
                                         @elseif ($issue->Ticket_Status == '0')
@@ -140,17 +157,24 @@
                                             Issue Fixed
                                         @endif
                                     </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <a href="{{ url('#') }}" class="btn btn-primary">View Issue</a>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <a href="{{ url('#') }}" class="btn btn-primary">View</a>
+                                    </td>
                                 </tr>
                             @endforeach
 
                         </table>
-
-
-
-
                     </div>
+
+
+
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
