@@ -123,8 +123,10 @@
                                     <div class="col-sm-6">
                                         <div class="form-group row">
 
-                                            <label for="id" class="col-sm-2 col-form-label">ID</label>
+
                                             <div class="col-sm-10">
+                                                <label for="id" class="col-sm-2 col-form-label">Accession
+                                                    Number</label>
                                                 <input type="text" readonly class="form-control-plaintext"
                                                     id="id" value="{{ $data->id }}">
                                             </div>
@@ -132,7 +134,7 @@
                                             <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
                                                 <input type="text" readonly class="form-control-plaintext"
-                                                    id="staticEmail" value="email@example.com">
+                                                    id="staticEmail" value="{{ $data->email }}">
                                             </div>
 
 
@@ -140,7 +142,7 @@
                                             <label for="staticPhone" class="col-sm-2 col-form-label">Phone</label>
                                             <div class="col-sm-10">
                                                 <input type="text" readonly class="form-control-plaintext"
-                                                    id="staticPhone" value="+91-8777376792">
+                                                    id="staticPhone" value="{{ $data->phone }}">
                                             </div>
                                         </div>
 

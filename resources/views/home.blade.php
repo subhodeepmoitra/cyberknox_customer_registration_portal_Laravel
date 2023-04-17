@@ -46,7 +46,7 @@
                         <table class="table table-bordered">
                             <div class="card-header">{{ __('Product Registration Details') }}</div>
                             <tr>
-                                <th>ID</th>
+                                <th>Accession Number</th>
                                 <th>Invoice</th>
                                 {{--  <th>First Name</th>
                                 <th>Last Name</th> --}}
@@ -56,10 +56,11 @@
                                 <th style="text-align: center; vertical-align: middle;">Time</th>
                                 <th style="text-align: center; vertical-align: middle;">Status</th>
                                 <th style="text-align: center; vertical-align: middle;">View</th>
+                                {{--                                 <th></th>
+ --}}
                             </tr>
 
                             @foreach ($users as $user)
-
                                 <tr>
                                     <td style="text-align: center; vertical-align: middle;"> {{ $user->id }} </td>
                                     <div id="content">
@@ -97,8 +98,9 @@
                                         @endif
                                     </td>
                                     <td style="text-align: center; vertical-align: middle;">
-                                        <a href="{{ url('/view_registration_details',$user->id) }}" class="btn btn-primary">View</a>
+                                        <a href="{{ url('/view_registration_details', ['id' => $user->id])}}" class="btn btn-primary">View Accn No {{ $user->id }}</a>
                                     </td>
+
                                 </tr>
                             @endforeach
                         </table>
