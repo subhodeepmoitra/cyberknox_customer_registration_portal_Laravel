@@ -100,80 +100,92 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Product Help') }}</div>
+                    @foreach ($invoices as $data)
+                        <div class="card-header">Product Registration Details for Accession Number {{ $data->id }}
+                        </div>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{-- {{ __('You are logged in!') }} --}}
-
-                        @if (session('success'))
-                            <div class="alert alert-success">{{ session('success') }}</div>
-                        @endif
-
-
-
-                        <form action="#">
-                            @foreach ($invoices as $data)
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group row">
-
-
-                                            <div class="col-sm-10">
-                                                <label for="id" class="col-sm-2 col-form-label">Accession
-                                                    Number</label>
-                                                <input type="text" readonly class="form-control-plaintext"
-                                                    id="id" value="{{ $data->id }}">
-                                            </div>
-
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" readonly class="form-control-plaintext"
-                                                    id="staticEmail" value="{{ $data->email }}">
-                                            </div>
-
-
-
-                                            <label for="staticPhone" class="col-sm-2 col-form-label">Phone</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" readonly class="form-control-plaintext"
-                                                    id="staticPhone" value="{{ $data->phone }}">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="staticFirstName" class="col-sm-2 col-form-label">Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" readonly class="form-control-plaintext"
-                                                    id="staticFirstName" value="First Name">
-                                            </div>
-                                        </div>
-
-                                        <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="..." alt="Card image cap">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk of the card's content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                        <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
                                 </div>
-                            @endforeach
-                        </form>
+                            @endif
 
-                    </div>
+                            {{-- {{ __('You are logged in!') }} --}}
+
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+
+                            <form class="form-inline">
+                                <div class="form-group">
+                                  <label for="email">Email address:</label>
+                                  <input type="email" class="form-control" id="email" value="{{$data->email}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="id">Accession Number:</label>
+                                  <input type="text" class="form-control" id="id" value="{{$data->id}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="fname">Applicant Name:</label>
+                                    <input type="text" name="fname" id="fname" class="form-control" value="{{$data->fname ." ". $data->lname}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">Address:</label>
+                                    <input type="text" name="address" id="address" class="form-control" value="{{$data->address}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="zipCode">Zip Code:</label>
+                                    <input type="text" name="zip" id="zip" class="form-control" value="{{$data->zipCode}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="place">Place:</label>
+                                    <input type="text" name="place" id="place" class="form-control" value="{{$data->place}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="country">Country:</label>
+                                    <input type="text" name="country" id="country" class="form-control" value="{{$data->country}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="code">Phone:</label>
+                                    <input type="text" name="phone" id="phone" class="form-control" value="{{"+" . $data->code . "-" . $data->phone}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="created-at">Created-at:</label>
+                                    <input type="text" name="created-at" id="created-at" class="form-control" value="{{$data->created_at}}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="status">Status:</label>
+                                   {{--  <input type="text" name="status" id="status" class="form-control" value="{{$data->registrationStatus}}" readonly> --}}
+                                    <label for="status" class="form-control">
+                                        @if ($data->registrationStatus == '1')
+                                            Waiting for approval
+                                        @elseif ($data->registrationStatus == '0')
+                                            Approved
+                                        @else
+                                            Cannot fetch data... 
+                                        @endif
+                                    </label>
+                                </div>
+
+                              </form>
+
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>

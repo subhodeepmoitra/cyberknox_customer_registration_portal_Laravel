@@ -46,18 +46,13 @@
                         <table class="table table-bordered">
                             <div class="card-header">{{ __('Product Registration Details') }}</div>
                             <tr>
-                                <th>Accession Number</th>
-                                <th>Invoice</th>
-                                {{--  <th>First Name</th>
-                                <th>Last Name</th> --}}
+                                <th style="text-align: center; vertical-align: middle;">Accession Number</th>
+                                <th style="text-align: center; vertical-align: middle;">Invoice</th>
                                 <th style="text-align: center; vertical-align: middle;">Email</th>
                                 <th style="text-align: center; vertical-align: middle;">Phone</th>
-                                {{--   <th>Type</th> --}}
                                 <th style="text-align: center; vertical-align: middle;">Time</th>
                                 <th style="text-align: center; vertical-align: middle;">Status</th>
                                 <th style="text-align: center; vertical-align: middle;">View</th>
-                                {{--                                 <th></th>
- --}}
                             </tr>
 
                             @foreach ($users as $user)
@@ -72,11 +67,9 @@
                                         </td>
                                     </div>
 
-                                    {{-- <td>{{ $user->fname }}</td>
-                                    <td>{{ $user->lname }}</td> --}}
                                     <td style="text-align: center; vertical-align: middle;">{{ $user->email }}</td>
                                     <td style="text-align: center; vertical-align: middle;">{{ $user->phone }}</td>
-                                    {{-- <td>
+                                   {{--  <td>
                                         @foreach ($Registrationtype as $type)
                                             @if ($type->type == '1')
                                                 Product Registration
@@ -116,11 +109,8 @@
                             <div class="card-header">{{ __('Product Issue Details') }}</div>
                             <tr>
                                 <th style="text-align: center; vertical-align: middle;">Invoice</th>
-                                {{-- <th>First Name</th>
-                                <th>Last Name</th> --}}
                                 <th style="text-align: center; vertical-align: middle;">Email</th>
                                 <th style="text-align: center; vertical-align: middle;">Phone</th>
-                                {{-- <th>Type</th> --}}
                                 <th style="text-align: center; vertical-align: middle;">Time</th>
                                 <th style="text-align: center; vertical-align: middle;">Status</th>
                                 <th style="text-align: center; vertical-align: middle;">View</th>
