@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function adminHome(){
         //admin home
-        $users = DB::table('user_product_registration_data')->select('invoice','fname','lname','email','phone','registrationStatus','created_at')->latest()->paginate(5);
+        $users = DB::table('user_product_registration_data')->select('id','invoice','fname','lname','email','phone','registrationStatus','created_at')->latest()->paginate(5);
         $Registrationtype = DB::table('customer_registration_types')->select('email','type')->get();
         return view ('adminHome', compact('users'));
     }

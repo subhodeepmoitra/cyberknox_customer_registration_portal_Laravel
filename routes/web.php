@@ -45,6 +45,8 @@ Route::get('/admin/home/issue_tickets', [App\Http\Controllers\HomeController::cl
 
 Route::get('/view_registration_details/{id}', [App\Http\Controllers\show_Registration_Details_Controller::class, 'Registrastion_details_for_client']);
 
+Route::get('/admin/home/view_registration/{id}', [App\Http\Controllers\admin\Admin_view_registration::class, 'Admin_view_registration_index']);
+
 //test view
 Route::get('/test', function () {
     return view ('auth/loginindex');

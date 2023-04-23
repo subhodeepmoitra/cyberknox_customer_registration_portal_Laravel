@@ -46,18 +46,20 @@
 
                         <table class="table table-bordered">
                             <tr>
+                                <th>Accession Number</th>
                                 <th>Invoice</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Status</th>
-                                <th></th>
+                                <th>View</th>
                             </tr>
 
                             @foreach ($users as $user)
                                 <tr>
                                     <div id="content">
+                                        <td>{{ $user->id }}</td>
                                         <td>
                                             <a href="{{ url('storage/' . $user->invoice) }}">
                                                 <img src="{{ url('storage/' . $user->invoice) }}" width="100px" id="img1"
@@ -80,7 +82,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-primary">View</a>
+                                        <a href="{{url('/admin/home/view_registration', ['id' => $user->id])}}" class="btn btn-primary">View</a>
                                     </td>
                                 </tr>
                             @endforeach

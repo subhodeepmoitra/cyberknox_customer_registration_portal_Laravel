@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Auth;
 use DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\UserProductRegistrationData;
 
-class show_Registration_Details_Controller extends Controller
+class Admin_view_registration extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    public function Registrastion_details_for_client($id)
-    {
+    public function Admin_view_registration_index($id){
         $uid = strval($id);
         //echo $uid;
         $getID = strval($id);
@@ -26,7 +22,7 @@ class show_Registration_Details_Controller extends Controller
         $id = DB::table('user_product_registration_data')
             ->select('id')
             ->where('email', Auth::user()->email);
-        return view('client.show_registrationDetails', compact('invoices'))->with('id', $invoices);
+        return view('admin.client_product_registrations_pending', compact('invoices'))->with('id', $invoices);
         //return view ('client.show_registrationDetails', compact($uid));
     }
 }
