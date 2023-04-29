@@ -32,11 +32,13 @@
 
     <style>
         @media screen and (max-width: 100px) {
-            .invoice-card{
+            .invoice-card {
                 position: relative;
                 top: 40%;
-            };
             }
+
+            ;
+        }
     </style>
 
 </head>
@@ -212,7 +214,13 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{ url('storage/' . $data->invoice) }}" class="rounded float-right" alt="...">
+                   <a href="{{ url('storage/' . $data->invoice) }}">
+                    <button type="button" class="btn btn-light">
+                        <img src="{{ url('storage/' . $data->invoice) }}" class="rounded float-right"
+                            alt="...">
+                    </button>
+                   </a>
+
                     <div class="card-body">
                         <p class="card-text">Invoice of {{ $data->id }}</p>
                     </div>
