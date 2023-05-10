@@ -25,4 +25,10 @@ class Admin_view_registration extends Controller
         return view('admin.client_product_registrations_pending', compact('invoices'))->with('id', $invoices);
         //return view ('client.show_registrationDetails', compact($uid));
     }
+
+    public function approve($id){
+        $code = 0;
+        $approve = DB::table('user_product_registration_data')->where('id', $id)->update(['registrationStatus' => 0]);
+        return redirect('admin/home');
+    }
 }

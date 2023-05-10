@@ -79,7 +79,7 @@ class HomeController extends Controller
         $emailData->type = 1;
         $emailData->save();
 
-        return redirect('/home')->with('success', "Product registration details sent successfully.");
+        return redirect('/customer/home')->with('success', "Product registration details sent successfully.");
     }
 
 

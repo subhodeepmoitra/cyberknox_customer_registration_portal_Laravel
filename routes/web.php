@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/customer/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('is_customer'); //route for customer portal
 
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->middleware('is_admin'); //route for IsAdmin check
 
@@ -46,6 +46,8 @@ Route::get('/admin/home/issue_tickets', [App\Http\Controllers\HomeController::cl
 Route::get('/view_registration_details/{id}', [App\Http\Controllers\show_Registration_Details_Controller::class, 'Registrastion_details_for_client']);
 
 Route::get('/admin/home/view_registration/{id}', [App\Http\Controllers\admin\Admin_view_registration::class, 'Admin_view_registration_index']);
+
+Route::get('/admin/approved/{id}', [App\Http\Controllers\admin\Admin_view_registration::class, 'approve']);
 
 //test view
 Route::get('/test', function () {

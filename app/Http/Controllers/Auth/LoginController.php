@@ -40,29 +40,29 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
     public function login(Request $request)
     {
         $input = $request->all();
-        $this->validate($request,[
-            'email'=>'required|email',
-            'password'=>'required'
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
         $email = $request->input('email');
         $password = $request->input('password');
 
-        if(Auth::attempt(['email' => $email, 'password' => $password]))
-        {
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
 
-            if (Auth::user()->is_admin == 1){
+            if (Auth::user()->is_admin == 1) {
                 return redirect('admin/home');
+            } elseif (Auth::user()->is_customer == 1) {
+                return redirect('/customer/home');
             }
-            else {
-                return redirect('home');
-            }
+            //elseif (Auth::user()->is_admin == 0 && Auth::user()->is_customer == 0) {
+            //     return redirect('/banned')->with('error', 'You are Banned! Contact Admin!');
+            // }
+        } else {
+            return redirect()->route('login')->with('error', 'Email-Address And Password Are Wrong.');
         }
-        else{
-            return redirect()->route('login')->with('error','Email-Address And Password Are Wrong.');
-        }
-
     }
 }

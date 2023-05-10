@@ -202,10 +202,10 @@
                                         <label for="created-at"></label>
                                         <label type="text" name="created-at" id="created-at" class="form-control"
                                             readonly>
-                                            <a href="{{url('/approved' , ['id' => $data->id])}}">
+                                            <a href="{{url('/admin/approved' , ['id' => $data->id])}}">
                                                 <button type="button" class="btn btn-success">Approve</button>
                                             </a>
-                                            <a href="{{url('/rejected' , ['id' => $data->id])}}">
+                                            <a href="{{url('/admin/rejected' , ['id' => $data->id])}}">
                                                 <button type="button" class="btn btn-danger">Reject </button>
                                             </a>
                                         </label>
